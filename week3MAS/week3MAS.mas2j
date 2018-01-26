@@ -1,0 +1,12 @@
+MAS week3MAS {
+
+	infrastructure: Centralised
+
+	environment: World
+
+	agents:
+		agent1 mAgent;
+
+	aslSourcePath:
+		"src/asl";
+}
