@@ -19,7 +19,7 @@ public class MyModel extends GridWorldModel
 	public MyModel()
 	{
 		super(GRID_WIDTH, GRID_HEIGHT, 1);
-		locRobot = new Location(0,  0);
+		locRobot = new Location(1, 1);
 		setAgPos(0, locRobot);
 		generateDirts();
 		generateBlocks();
@@ -91,6 +91,12 @@ public class MyModel extends GridWorldModel
 		return dirts;
 	}
 	
+	public List<Location> getBlockLocations()
+	{
+		return blocks;
+	}
+	
+	
 	private boolean removeDirt(Location l)
 	{
 		for (int i=0; i<dirts.size(); i++)
@@ -103,6 +109,8 @@ public class MyModel extends GridWorldModel
 		}
 		return false;
 	}
+	
+	
 	
 	private boolean removeBlock(Location l)
 	{
@@ -126,8 +134,8 @@ public class MyModel extends GridWorldModel
 		
 //		Location lBlock1 = new Location(r.nextInt(GRID_WIDTH), r.nextInt(GRID_HEIGHT));
 		
-		Location lBlock1 = new Location(2,4);
-		Location lBlock2 = new Location(5,6);
+		Location lBlock1 = new Location(4,1);
+		Location lBlock2 = new Location(2,2);
 		Location lBlock3 = new Location(8,2);
 		Location lBlock4 = new Location(3,6);
 		

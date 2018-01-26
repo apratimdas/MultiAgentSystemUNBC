@@ -58,7 +58,7 @@ public class World extends Environment {
     	if (result)
     	{
     		updatePercepts();
-    		try { Thread.sleep(1000); } catch (InterruptedException x) { }
+    		try { Thread.sleep(600); } catch (InterruptedException x) { }
     	}
     	
     	return result;
@@ -76,12 +76,32 @@ public class World extends Environment {
     	Location loc = model.getAgPos(0);
     	addPercept(Literal.parseLiteral("position(" + loc.x + ", " + loc.y +")"));
     	
+    	
+    	List<Location> blocks = model.getBlockLocations();
+    	for (int i=0; i<blocks.size(); i++)
+    	{
+    		if(blocks.get(i).x == loc.x)
+    		{
+    			if(blocks.get(i).y == loc.y + 1 || blocks.get(i).y == loc.y - 1)
+    			{
+    				addPercept(Literal.parseLiteral("blocked(" + blocks.get(i).x + ", " + blocks.get(i).y + ")"));
+    			}
+    		}
+    		if(blocks.get(i).y == loc.y)
+    		{
+    			if(blocks.get(i).x == loc.x + 1 || blocks.get(i).x == loc.x - 1)
+    			{
+    				addPercept(Literal.parseLiteral("blocked(" + blocks.get(i).x + ", " + blocks.get(i).y + ")"));    				
+    			}
+    		}
+    	}
+    	
+    	
     	List<Location> dirts = model.getDirtLocations();
     	for (int i=0; i<dirts.size(); i++)
     	{
     		addPercept(Literal.parseLiteral("dirt(" + dirts.get(i).x + ", " + dirts.get(i).y + ")"));
     	}
-    	
     	
     }
     
