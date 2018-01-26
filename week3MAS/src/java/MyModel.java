@@ -173,7 +173,16 @@ public class MyModel extends GridWorldModel
 //				i--;
 //		}
 		
-		
+		boundaryCheck();
+	}
+	
+	void boundaryCheck()
+	{
+		for(int i=0; i<dirts.size(); ++i)
+		{
+			if(dirts.get(i).x >= GRID_WIDTH || dirts.get(i).y >= GRID_HEIGHT)
+				dirts.remove(i);
+		}
 	}
 	
 	boolean dirtExists(Location loc)
